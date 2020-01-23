@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FatimasCustomList;
 
-namespace FatimasListUnitTest
+namespace CustomListUnitTest
 {
     [TestClass]
     public class UnitTest1

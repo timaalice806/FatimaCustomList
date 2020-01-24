@@ -30,11 +30,13 @@ namespace CustomListUnitTest
             TimaList<int> myList = new TimaList<int>();
             int value = 6;
             int expected = 1;
+            int actual;
             //ACT
             myList.Add(value);
+            actual = myList.Count;
 
             //ASSERT
-            Assert.AreEqual(expected, myList.Count);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void CheckOrderOfIndicesAfterAdd()
@@ -60,11 +62,35 @@ namespace CustomListUnitTest
         {
             //ARRANGE
             TimaList<int> myList = new TimaList<int>();
+            int expectedCapcity = 8;
+            int actualCapacity;
+
+            myList.Add(1);
+            myList.Add(2);
+            myList.Add(3);
+            myList.Add(4);
 
             //ACT
+            myList.Add(5);
+            actualCapacity = myList.Capacity;
 
             //ASSERT
+            Assert.AreEqual(expectedCapcity, actualCapacity);
+        }
+        public void CheckElementsAddedToEmptyArray()
+        {
+            //ARRANGE
+            TimaList<int> myList = new TimaList<int>();
+            int expected = 2;
+            int actual;
 
+            //ACT
+            myList.Add(1);
+            myList.Add(2);
+            actual = myList.Count;
+
+            //ASSERT
+            Assert.AreEqual(expected, actual);
         }
     }
 }

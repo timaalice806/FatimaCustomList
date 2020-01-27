@@ -8,7 +8,7 @@ namespace CustomListUnitTest
     public class UnitTest1
     {
         [TestMethod]
-        public void CheckValueIndexZero()
+        public void CheckValueAtIndexZero()
         {
             //ARRANGE
             TimaList<int> myList = new TimaList<int>();
@@ -58,6 +58,7 @@ namespace CustomListUnitTest
             //ASSERT
             Assert.AreEqual(thirdValue, myList[2]);
         }
+        [TestMethod]
         public void CheckArrayCapacity()
         {
             //ARRANGE
@@ -77,6 +78,7 @@ namespace CustomListUnitTest
             //ASSERT
             Assert.AreEqual(expectedCapcity, actualCapacity);
         }
+        [TestMethod]
         public void CheckElementsAddedToEmptyArray()
         {
             //ARRANGE
@@ -92,5 +94,23 @@ namespace CustomListUnitTest
             //ASSERT
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+////////////////////////////////////////////////////////
+        public void CheckCountAfterRemove()
+        {
+            //ARRANGE
+            TimaList<int> myList = new TimaList<int>();
+            int value = 6;
+            int expected = 0;
+            int actual;
+
+            //ACT
+            myList.Remove(value);
+            actual = myList.Count;
+
+            //ASSERT
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }

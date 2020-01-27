@@ -69,7 +69,7 @@ namespace FatimasCustomList
             Count++;
 
             //LOOP THROUGH ARRAY
-            for (int i = 0; i < Count; i++);
+            //for (int i = 0; i < Count; i++);
 
             //ONCE COUNT = CAPACITY, DUPLICATE 
             if(count == capacity)
@@ -78,11 +78,33 @@ namespace FatimasCustomList
                 tempItems = items;
                 items = new T[capacity];
 
-                for (int i = 0; i < tempItems.Length; i++)
+                for (int i = 0; i < Count; i++)
                 {
                     items[i] = tempItems[i];
                 }
             }
+        }
+        public void Remove(T item)
+        {
+            T[] temp = new T[capacity];
+            bool isFound = false;
+            for (int i = 0; i < Count; i++)
+            {
+                if (item.Equals(items[i]))
+                {
+                    Count--;
+                    isFound = true;
+                }
+                if (isFound == true)
+                {
+                    temp[i] = items[i + 1];
+                }
+                else
+                {
+                    temp[i] = items[i];
+                }
+            }
+            items = temp;
         }
     }
 }

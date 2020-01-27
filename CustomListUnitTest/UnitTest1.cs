@@ -111,6 +111,35 @@ namespace CustomListUnitTest
             //ASSERT
             Assert.AreEqual(expected, actual);
         }
+        public void RemoveItemFromSpecificIndex()
+        {
+            //ARRANGE
+            TimaList<int> myList = new TimaList<int>();
+            int value = 6;
+            int expected = 0;
+            int actual;
 
+            //ACT
+            myList.Remove(value);
+            actual = myList.Count;
+
+            //ASSERT
+            Assert.AreEqual(expected, actual);
+        }
+        public void RemoveNonexistentItem()
+        {
+            //ARRANGE
+            TimaList<int> myList = new TimaList<int>();
+            int value = 6;
+            int expected = 0;
+            int actual;
+
+            //ACT
+            myList.Remove(value);
+            actual = myList.Count;
+
+            //ASSERT
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

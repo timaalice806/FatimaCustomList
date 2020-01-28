@@ -68,16 +68,13 @@ namespace FatimasCustomList
             //INCREMENT THE COUNT BY 1
             Count++;
 
-            //LOOP THROUGH ARRAY
-            //for (int i = 0; i < Count; i++);
-
             //ONCE COUNT = CAPACITY, DUPLICATE 
             if(count == capacity)
             {
                 capacity *= 2;
                 tempItems = items;
                 items = new T[capacity];
-
+                //LOOP THROUGH ARRAY
                 for (int i = 0; i < Count; i++)
                 {
                     items[i] = tempItems[i];
@@ -105,6 +102,16 @@ namespace FatimasCustomList
                 }
             }
             items = temp;
+        }
+        public void Zip()
+        {
+            TimaList<T> odd = new TimaList<T>();
+            TimaList<T> even = new TimaList<T>();
+
+            TimaList<T> zipped = new TimaList<T>();
+
+
+
         }
     }
 }

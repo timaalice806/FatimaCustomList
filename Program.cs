@@ -10,15 +10,13 @@ namespace FatimasCustomList
     {
         static void Main(string[] args)
         {
-            TimaList<int> list = new TimaList<int>();
-
-            list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.Add(4);
-            list.Add(5);
-
-            list.Remove(2);
+            //TimaList<int> list = new TimaList<int>();
+            TimaList<int> odd = new TimaList<int>() { 1, 3, 5 };
+            TimaList<int> even = new TimaList<int>() { 2, 4, 6 };
+            TimaList<int> zipped = new TimaList<int>();
+            zipped.Zip(odd, even);
+           
+           
         }
     }
 }

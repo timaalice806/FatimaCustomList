@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace FatimasCustomList
 {
-    public class TimaList<T>
+    public class TimaList<T> : IEnumerable
     {
         //MEMBER VARIABLES (MY LIST HAS A..)
 
         T[] items = new T[4];
         T[] tempItems;
 
+ 
         int count;
         public int Count
         {
@@ -103,15 +105,24 @@ namespace FatimasCustomList
             }
             items = temp;
         }
-        public void Zip()
+        public TimaList<T> Zip(TimaList<T> odd, TimaList<T> even)
         {
-            TimaList<T> odd = new TimaList<T>();
-            TimaList<T> even = new TimaList<T>();
-
             TimaList<T> zipped = new TimaList<T>();
 
-
-
+            for (int i = 0; i < odd.count; i++)
+            {
+                zipped.Add(odd[i]);
+                zipped.Add(even[i]);
+            }
+            return zipped;
+        }
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return items[i];
+            }
+            yield return "Finito";
         }
     }
 }

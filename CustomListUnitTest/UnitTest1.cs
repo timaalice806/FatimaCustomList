@@ -94,9 +94,9 @@ namespace CustomListUnitTest
             //ASSERT
             Assert.AreEqual(expected, actual);
         }
+        ////////////////////////////////////////////////////////
         [TestMethod]
-////////////////////////////////////////////////////////
-        public void CheckCountAfterRemove()
+        public void CheckCountAfterRemoval()
         {
             //ARRANGE
             TimaList<int> myList = new TimaList<int>();
@@ -111,32 +111,78 @@ namespace CustomListUnitTest
             //ASSERT
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void RemoveItemFromSpecificIndex()
         {
             //ARRANGE
             TimaList<int> myList = new TimaList<int>();
-            int value = 6;
+            int value1 = 6;
+            int value2 = 8;
             int expected = 0;
-            int actual;
 
             //ACT
-            myList.Remove(value);
-            actual = myList.Count;
+            myList.Add(value1);
+            myList.Add(value2);
+            myList.Remove(value2);
+
+
+            //ASSERT
+            Assert.AreEqual(expected, myList[1]);
+        }
+        [TestMethod]
+        public void RemoveNonexistentItem()
+        {
+            //ARRANGE
+            TimaList<int> even = new TimaList<int>() { 2, 4, 6 };
+            int value = 1;
+            int actual;
+            int expected = 0;
+
+            //ACT
+            even.Remove(value);
+            actual = even.Count;
 
             //ASSERT
             Assert.AreEqual(expected, actual);
         }
-        public void RemoveNonexistentItem()
+        [TestMethod]
+        public void ConfirmIndexZip()
         {
             //ARRANGE
-            TimaList<int> myList = new TimaList<int>();
-            int value = 6;
-            int expected = 0;
-            int actual;
+            TimaList<int> odd = new TimaList<int>() { 1, 3, 5 };
+            TimaList<int> even = new TimaList<int>() { 2, 4, 6 };
+            TimaList<int> zipped;
+
+            int expected = 4;
 
             //ACT
-            myList.Remove(value);
-            actual = myList.Count;
+            zipped = TimaList<int>.Zip(odd, even);
+
+            //ASSERT
+            Assert.AreEqual(expected, zipped[3]);
+        }
+        [TestMethod]
+        public void ConfirmToString()
+        {
+            //ARRANGE
+            TimaList<int> list = new TimaList<int>() { 1, 2, 3, 4, 5 };
+            string expected = "12345";
+
+            //ACT
+            string actual = list.ToString();
+
+            //ASSERT
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ConfirmToStringCapacity()
+        {
+            //ARRANGE
+            TimaList<int> list = new TimaList<int>() { 1, 2, 3, };
+            string expected = "123";
+
+            //ACT
+            string actual = list.ToString();
 
             //ASSERT
             Assert.AreEqual(expected, actual);
